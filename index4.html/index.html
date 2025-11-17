@@ -1,26 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Угадай человека</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <h1>Угадай человека</h1>
 <p class="lead">Открывай плитки, используй подсказки и угадай персонажа!</p>
 
 <div class="layout">
-  <!-- Левая часть -->
   <div class="left">
-
-    <!-- Игровая доска -->
     <div class="board">
       <img id="personImg" src="" alt="Персонаж">
       <div class="tiles" id="tiles"></div>
     </div>
 
-    <!-- Настройки сетки -->
     <div class="tiles-ctrl">
       <span>Кол-во колонок:</span>
       <select id="colsSelect">
@@ -32,18 +29,15 @@
       </select>
     </div>
 
-    <!-- Статистика -->
     <div class="status">
       <span class="meta">Открыто: <b id="opened">0</b>/<b id="total">0</b></span>
       <span class="meta">Время: <b id="time">00:00</b></span>
     </div>
   </div>
 
-  <!-- Правая часть -->
   <div class="right">
     <div class="controls">
 
-      <!-- Подсказки -->
       <div class="questionArea" id="questionArea"></div>
 
       <div class="row meta">
@@ -66,7 +60,6 @@
 
       <p class="meta" id="roundResult">—</p>
 
-      <!-- Музыка -->
       <div class="row">
         <input type="file" id="musicFile" accept="audio/*">
       </div>
@@ -76,6 +69,6 @@
   </div>
 </div>
 
-    <script src="scrupt.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
