@@ -1,0 +1,175 @@
+:root{
+  --cols:6;
+  --gap:1px;
+  --tile-bg:rgba(255, 255, 255, 0.993);
+}
+
+/* БАЗОВОЕ */
+*{
+  box-sizing:border-box;
+}
+body{
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto;
+  margin:12px;
+  background: url(a0d11993f30b45dd1a6d2b7157fea875__2.png) no-repeat;
+  background-size: cover;
+  color:#111;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+}
+h1{
+  margin:0;
+  font-size:1.4rem;
+}
+.lead{
+  margin:0;
+  color:#444;
+}
+
+.layout{
+  display:flex;
+  gap:18px;
+  max-width:1100px;
+  width:100%;
+}
+
+.left,.right{
+  background:#fff;
+  padding:14px;
+  border-radius:12px;
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+}
+
+.left{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+}
+
+.right{
+  width:360px;
+  min-width:260px;
+}
+
+/* ДОСКА */
+.board{
+  width:min(760px,92vw);
+  aspect-ratio:1/1;
+  position:relative;
+  background:#ddd;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+#personImg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* ТАЙЛЫ (3D) */
+.tiles{
+  position:absolute;
+  inset:0;
+  display:grid;
+  grid-template-columns:repeat(var(--cols),1fr);
+  gap:var(--gap);
+  padding:var(--gap);
+  perspective:800px;
+}
+
+.tile{
+  background:var(--tile-bg);
+  border-radius:6px;
+  cursor:pointer;
+  transform-style:preserve-3d;
+  transition:transform .5s cubic-bezier(.4,0,.2,1), opacity .4s;
+}
+
+/* 3D-анимация при наведении */
+.tile:hover{
+  transform:rotateX(18deg) rotateY(-14deg) scale(1.05);
+}
+
+/* При открытии — 3D исчезание */
+.tile.revealed{
+  opacity:0;
+  transform:rotateX(90deg) scale(.8);
+  pointer-events:none;
+}
+
+/* ПРАВАЯ ПАНЕЛЬ */
+.controls{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+input[type="text"], input[type="file"]{
+  width:100%;
+  padding:8px;
+  border:1px solid #ddd;
+  border-radius:8px;
+}
+
+button{
+  padding:8px 12px;
+  border-radius:10px;
+  border:0;
+  background:#0b76ff;
+  color:#fff;
+  cursor:pointer;
+  font-weight:600;
+  transition:background .2s, transform .2s;
+}
+
+button:hover{
+  background:#005bea;
+  transform:translateY(-2px);
+}
+
+button:active{
+  transform:scale(.96);
+}
+
+button.ghost{
+  background:#f2f2f2;
+  color:#000;
+}
+
+.status{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.questionArea{
+  background:#f9fbff;
+  border:1px solid #e5ecff;
+  padding:10px;
+  border-radius:8px;
+  min-height:120px;
+}
+
+.row{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+
+/* АДАПТИВ */
+@media(max-width:900px){
+  .layout{
+    flex-direction:column;
+    align-items:center;
+  }
+  .right{
+    width:92vw;
+  }
+}

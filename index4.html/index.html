@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Угадай человека</h1>
+<p class="lead">Открывай плитки, используй подсказки и угадай персонажа!</p>
+
+<div class="layout">
+  <!-- Левая часть -->
+  <div class="left">
+
+    <!-- Игровая доска -->
+    <div class="board">
+      <img id="personImg" src="" alt="Персонаж">
+      <div class="tiles" id="tiles"></div>
+    </div>
+
+    <!-- Настройки сетки -->
+    <div class="tiles-ctrl">
+      <span>Кол-во колонок:</span>
+      <select id="colsSelect">
+        <option value="4">4 × 4</option>
+        <option value="5">5 × 5</option>
+        <option value="6" selected>6 × 6</option>
+        <option value="7">7 × 7</option>
+        <option value="8">8 × 8</option>
+      </select>
+    </div>
+
+    <!-- Статистика -->
+    <div class="status">
+      <span class="meta">Открыто: <b id="opened">0</b>/<b id="total">0</b></span>
+      <span class="meta">Время: <b id="time">00:00</b></span>
+    </div>
+  </div>
+
+  <!-- Правая часть -->
+  <div class="right">
+    <div class="controls">
+
+      <!-- Подсказки -->
+      <div class="questionArea" id="questionArea"></div>
+
+      <div class="row meta">
+        Подсказка: <b id="qIndex">0</b>/3
+      </div>
+
+      <button id="hintBtn">Открыть подсказку и 2 плитки</button>
+
+      <div class="row meta">
+        Ошибок: <b id="mistakes">0</b>
+      </div>
+
+      <div class="row">
+        <input type="text" id="guessInput" placeholder="Введите имя персонажа">
+        <button id="guessBtn">OK</button>
+      </div>
+
+      <button id="nextPersonBtn" class="ghost">Следующий</button>
+      <button id="revealAllBtn">Показать всё</button>
+
+      <p class="meta" id="roundResult">—</p>
+
+      <!-- Музыка -->
+      <div class="row">
+        <input type="file" id="musicFile" accept="audio/*">
+      </div>
+      <button id="musicPlayBtn">Воспроизвести</button>
+
+    </div>
+  </div>
+</div>
+
+    <script src="scrupt.js"></script>
+</body>
+</html>
